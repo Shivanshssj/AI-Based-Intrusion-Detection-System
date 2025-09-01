@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard • AI Intrusion Detection System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">AI Intrusion Detection System</div>
+  </nav>
+
+  <section class="page">
+    <h2 class="page-title">Upload Traffic Data</h2>
+
+    <form class="upload-card" action="{{ url_for('analyze') }}" method="post" enctype="multipart/form-data">
+      <p>Select your dataset (.csv)</p>
+      <input type="file" name="file" accept=".csv" required />
+      <button type="submit" class="btn">Run Analysis</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 AI Intrusion Detection System</p>
+  </footer>
+</body>
+</html>

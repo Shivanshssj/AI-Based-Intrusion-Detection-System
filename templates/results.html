@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Results • AI Intrusion Detection System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">AI Intrusion Detection System</div>
+  </nav>
+
+  <section class="page">
+    <h2 class="page-title">Analysis Results</h2>
+
+    {% if notes and notes|length %}
+      <div class="note">
+        {% for n in notes %}<p>• {{ n }}</p>{% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="card">
+      <h3>Dataset Preview</h3>
+      <div class="table-wrap">{{ preview_html|safe }}</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Confusion Matrix</h3>
+        {% if cm_path %}
+          <img class="plot-img" src="{{ url_for('static', filename='plots/' + cm_path) }}" alt="Confusion Matrix">
+        {% else %}
+          <p><em>No labels found in CSV, so confusion matrix is not available.</em></p>
+        {% endif %}
+      </div>
+
+      <div class="card">
+        <h3>Classification Report</h3>
+        <div class="table-wrap">{{ report_html|safe }}</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Attack Type Distribution</h3>
+        <img class="plot-img" src="{{ url_for('static', filename='plots/' + dist_path) }}" alt="Attack Distribution">
+      </div>
+
+      <div class="card">
+        <h3>Timeline of Detected Attacks</h3>
+        <img class="plot-img" src="{{ url_for('static', filename='plots/' + timeline_path) }}" alt="Timeline">
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:10px">
+      <a class="btn" href="{{ url_for('dashboard') }}">Analyze Another File</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 AI Intrusion Detection System</p>
+  </footer>
+</body>
+</html>

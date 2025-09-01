@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Intrusion Detection System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Navbar (left title only) -->
+  <nav class="navbar">
+    <div class="logo">AI Intrusion Detection System</div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>AI-Powered Intrusion Detection System</h1>
+    <p>Detect and classify network threats using machine learning.</p>
+    <a href="{{ url_for('dashboard') }}" class="btn">Go to Dashboard</a>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>📂 Data Upload</h3>
+        <p>Upload and analyze network datasets in CSV format.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🛡️ Threat Detection</h3>
+        <p>Identify malicious traffic with your trained ML model.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📊 Attack Classification</h3>
+        <p>View reports and confusion matrix for model performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attack Types (picked from your project) -->
+  <section class="attack-types">
+    <h2>Detectable Attack Types</h2>
+    <div class="attack-grid">
+      <div class="attack-card">🚨 DoS & DDoS Attacks</div>
+      <div class="attack-card">🕵️ Probe / Reconnaissance</div>
+      <div class="attack-card">🔗 Man-in-the-Middle</div>
+      <div class="attack-card">✅ Normal Traffic</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 AI Intrusion Detection System</p>
+  </footer>
+</body>
+</html>
